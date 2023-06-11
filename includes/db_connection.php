@@ -21,7 +21,7 @@ class Connector {
     private $connection;
     
     function __construct() {
-        $file= dirname(__FILE__) . '/setting.ini';
+        $file= dirname(__FILE__) . '/settings.ini';
         if (!file_exists($file)){
             echo "ERROR: No existe el archivo de $file";
             die();
@@ -75,7 +75,7 @@ class Connector {
             $result=$statement->fetchAll();
             $statement->closeCursor();
             $connector->disconnect();            
-            $result = Connector::convertUTF8($result);
+            //$result = Connector::convertUTF8($result);
             if(count($result)>0)return $result;
             else return true;
         }
